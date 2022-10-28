@@ -10,32 +10,40 @@
         <h1 class="h3 mb-0 text-gray-800">Users</h1>
     </div>
 
+    @if(Session::has('message'))
+        <div>
+            <span class="alert alert-primary">{{Session::get('message')}}</span>
+        </div>
+    @endif
+
     <div class="row">
-        <div class="card">
-            <div class="card-header">
-                <a href="{{ route('users.create') }}" class="float-right btn btn-primary">Create</a>
-            </div>
-            <div class="card-body">
-                <table class="table table-border table-responsive">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Manage</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($users as $key=>$user)
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <a href="{{ route('users.create') }}" class="float-right btn btn-primary">Create</a>
+                </div>
+                <div class="card-body">
+                    <table class="table table-border">
+                        <thead>
                             <tr>
-                                <td>{{$key+1}}</td>
-                                <td>{{$user->username}}</td>
-                                <td>{{$user->email}}</td>
-                                <td>Edit/Delete</td>
+                                <th>#</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Manage</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach($users as $key=>$user)
+                                <tr>
+                                    <td>{{$key+1}}</td>
+                                    <td>{{$user->username}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>Edit/Delete</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
