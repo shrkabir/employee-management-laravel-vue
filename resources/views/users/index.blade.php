@@ -38,7 +38,9 @@
                                     <td>{{$key+1}}</td>
                                     <td>{{$user->username}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>Edit/Delete</td>
+                                    <td>
+                                        <a href="{{route('users.edit', $user->id)}}" class="btn btn-primary">Edit</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
