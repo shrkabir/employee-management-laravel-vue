@@ -41,6 +41,8 @@ class UserController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
+        //for validation custom request class UserStoreRequest is used.
+
         User::create([
             'username'   => $request->username,
             'first_name' => $request->first_name,
@@ -82,7 +84,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UserUpdateRequest $request, User $user)
-    {
+    {   
+        //for validation custom request class UserUpdateRequest is used.
+        
         $user->update([
             'username'   => $request->username,
             'first_name' => $request->first_name,
