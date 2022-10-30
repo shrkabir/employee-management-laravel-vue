@@ -39,7 +39,14 @@
                                     <td>{{$user->username}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>
-                                        <a href="{{route('users.edit', $user->id)}}" class="btn btn-primary">Edit</a>
+                                        <div class="row">
+                                            <a href="{{route('users.edit', $user->id)}}" class="btn btn-primary">Edit</a>
+                                            <form action="{{route('users.destroy', $user->id)}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
