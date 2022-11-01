@@ -74,6 +74,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        // route model binding has used.
+
         return view('users.edit', compact('user'));
     }
 
@@ -86,7 +88,10 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request, User $user)
     {   
-        //for validation custom request class UserUpdateRequest is used.
+        /*
+          for validation custom request class UserUpdateRequest is used.
+          route model binding has used.
+        */
         
         $user->update([
             'username'   => $request->username,

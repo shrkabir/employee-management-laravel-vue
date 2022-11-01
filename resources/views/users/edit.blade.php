@@ -78,7 +78,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <input type="submit" class="btn btn-primary" value="Update User">
+                            <input type="submit" class="btn btn-sm btn-primary" value="Update User">
                         </div>
                     </form>
                 </div>

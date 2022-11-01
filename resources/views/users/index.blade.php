@@ -20,7 +20,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('users.create') }}" class="float-right btn btn-primary">Create</a>
+                    <a href="{{ route('users.create') }}" class="float-right btn btn-sm btn-primary">Create</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-border">
@@ -40,11 +40,11 @@
                                     <td>{{$user->email}}</td>
                                     <td>
                                         <div class="row">
-                                            <a href="{{route('users.edit', $user->id)}}" class="btn btn-primary">Edit</a>
+                                            <a href="{{route('users.edit', $user->id)}}" class="btn btn-sm btn-primary mr-2">Edit</a>
                                             <form action="{{route('users.destroy', $user->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-danger">Delete</button>
+                                                <button class="btn btn-sm btn-danger">Delete</button>
                                             </form>
                                         </div>
                                     </td>
