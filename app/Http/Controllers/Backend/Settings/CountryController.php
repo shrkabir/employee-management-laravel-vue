@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Location\Country;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CountryStoreRequest;
+use App\Http\Requests\CountryUpdateRequest;
 
 class CountryController extends Controller
 {
@@ -64,9 +65,9 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Country $country)
     {
-        //
+        return view('settings.country.edit', compact('country'));
     }
 
     /**
@@ -76,9 +77,11 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CountryUpdateRequest $request, Country $country)
     {
-        //
+        $country->update($request->validated());
+
+        return redirect()->route('countries.index')->with('message', 'Country updated successfully');
     }
 
     /**
@@ -87,8 +90,10 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Country $country)
     {
-        //
+        $country->delete();
+
+        return redirect()->route('countries.index')->with('message', 'Country deleted successfully');
     }
 }
