@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Users
+    Add Country
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Create Country
+                    Add Country
                 </div>
                 <div class="card-body">
                     <form action="{{ route('countries.store') }}" method="post">
