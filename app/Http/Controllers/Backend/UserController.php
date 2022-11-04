@@ -101,7 +101,6 @@ class UserController extends Controller
             'first_name' => $request->first_name,
             'last_name'  => $request->last_name,
             'email'      => $request->email,
-            // 'password'   => Hash::make($request->password),
         ]);
 
         return redirect()->route('users.index')->with('message', 'User updated successfully.');
@@ -126,8 +125,8 @@ class UserController extends Controller
 
     public function changePassword(Request $request, User $user){
         $request->validate([
-            'password'              => 'required',
-            'password_confirmation' => 'required | same:password',
+            'password'              => 'required|confirmed|min:8',
+            // 'password_confirmation' => 'required | same:password',
         ]);
 
         $user->update([
