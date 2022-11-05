@@ -10,4 +10,8 @@ class Country extends Model
     use HasFactory;
 
     protected $fillable= ['country_code', 'name'];
+
+    public function state(){
+        return $this->hasMany(State::class);
+    }
 }
