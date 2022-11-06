@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Backend\Settings;
 
 use Illuminate\Http\Request;
 use App\Models\Location\State;
+use App\Models\Location\Country;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StateStoreRequest;
+use App\Http\Requests\StateUpdateRequest;
 
 class StateController extends Controller
 {
@@ -27,7 +30,9 @@ class StateController extends Controller
      */
     public function create()
     {
-        return view('settings.state.create');
+        $countries= Country::all();
+        
+        return view('settings.state.create', compact('countries'));
     }
 
     /**
@@ -36,9 +41,11 @@ class StateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StateStoreRequest $request)
     {
-        //
+        State::create($request->validated());
+
+        return redirect()->route('states.index')->with('message', 'State added successfully');
     }
 
     /**
@@ -60,7 +67,9 @@ class StateController extends Controller
      */
     public function edit(State $state)
     {
-        return view('settings.state.edit');
+        $countries= Country::all();
+
+        return view('settings.state.edit', compact('state', 'countries'));
     }
 
     /**
@@ -70,9 +79,14 @@ class StateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StateUpdateRequest $request, State $state)
     {
-        //
+        $state->update([
+            'country_id' => $request->country_id,
+            'name'       => $request->name
+        ]);
+
+        return redirect()->route('states.index')->with('message', 'State updated successfully');
     }
 
     /**
@@ -81,8 +95,10 @@ class StateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(State $state)
     {
-        //
+        $state->delete();
+
+        return redirect()->route('states.index')->with('message', 'State deleted successfully');
     }
 }
