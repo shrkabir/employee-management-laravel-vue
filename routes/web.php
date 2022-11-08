@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\settings\CityController;
 use App\Http\Controllers\Backend\Settings\StateController;
 use App\Http\Controllers\Backend\Settings\CountryController;
 
@@ -29,3 +30,4 @@ Route::post('users/{id}/change-pssword', [UserController::class, 'changePassword
 //System Management Routes
 Route::resource('countries', CountryController::class);
 Route::resource('states', StateController::class);
+Route::resource('cities', CityController::class);
