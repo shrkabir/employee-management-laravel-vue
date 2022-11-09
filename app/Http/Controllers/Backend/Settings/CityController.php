@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Location\City;
 use App\Models\Location\State;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CityStoreRequest;
 
 class CityController extends Controller
 {
@@ -39,9 +40,11 @@ class CityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CityStoreRequest $request)
     {
-        //
+        City::create($request->validated());
+
+        return redirect()->route('cities.index')->with('message', 'City created successfully.');
     }
 
     /**
