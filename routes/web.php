@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\settings\CityController;
 use App\Http\Controllers\Backend\Settings\StateController;
 use App\Http\Controllers\Backend\Settings\CountryController;
+use App\Http\Controllers\Backend\Settings\DepartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,4 @@ Route::post('users/{id}/change-pssword', [UserController::class, 'changePassword
 Route::resource('countries', CountryController::class);
 Route::resource('states', StateController::class);
 Route::resource('cities', CityController::class);
+Route::resource('departments', DepartmentController::class);
