@@ -15,9 +15,13 @@ class CityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $cities= City::all();
+        if($request->has('search')){
+            $cities= City::where('name', 'like', "%{$request->search}%")->get();
+        }else{
+            $cities= City::all();
+        }
         
         return view('settings.city.index', compact('cities'));
     }
@@ -64,9 +68,11 @@ class CityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(City $city)
     {
-        //
+        $states= State::all();
+
+        return view('settings.city.edit', compact('states', 'city'));
     }
 
     /**
@@ -76,9 +82,14 @@ class CityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CityStoreRequest $request, City $city)
     {
-        //
+        $city->update([
+            'state_id' => $request->state_id,
+            'name'     => $request->name
+        ]);
+
+        return redirect()->route('cities.index')->with('message', 'City updated successfully.');
     }
 
     /**
@@ -87,8 +98,10 @@ class CityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(City $city)
     {
-        //
+        $city->delete();
+
+        return redirect()->route('cities.index')->with('message', 'City deleted successfully.');
     }
 }
