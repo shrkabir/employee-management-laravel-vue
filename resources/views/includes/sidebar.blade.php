@@ -19,7 +19,7 @@
 
             <!-- Nav Item - Employee Management -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/employee">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Employee Management</span></a>
             </li>
