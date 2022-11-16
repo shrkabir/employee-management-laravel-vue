@@ -38,14 +38,17 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>state Name</th>
-                                <th>City</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Address</th>
+                                <th>Department</th>
                                 <th>Manage</th>
                             </tr>
                         </thead>
                         <tbody>
-                            
                                 <tr>
+                                    <td></td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
