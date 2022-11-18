@@ -29,7 +29,8 @@
                             </form>
                         </div>
                         <div>
-                            <a href="" class="float-right btn btn-sm btn-primary">Create</a>
+                            <router-link :to="{name: 'employee-create'}" class="float-right btn btn-sm btn-primary">Create</router-link>
+                            <!-- <a href="" class="float-right btn btn-sm btn-primary">Create</a> -->
                         </div>
                     </div>
                 </div>
