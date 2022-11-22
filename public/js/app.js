@@ -5455,6 +5455,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     Datepicker: vuejs_datepicker__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      countries: []
+    };
+  },
+  created: function created() {
+    this.getCountries();
+  },
+  methods: {
+    getCountries: function getCountries() {
+      var _this = this;
+      axios.get('api/employees/get-countries').then(function (res) {
+        _this.countries = res.data;
+      })["catch"](function (error) {
+        console.log(console.error);
+      });
+    }
   }
 });
 

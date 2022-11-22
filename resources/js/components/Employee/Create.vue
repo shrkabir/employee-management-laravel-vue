@@ -140,6 +140,23 @@
     export default{
         components: {
             Datepicker
+        },
+        data(){
+            return{
+                countries: []
+            }
+        },
+        created(){
+            this.getCountries();
+        },
+        methods: {
+            getCountries(){
+                axios.get('api/employees/get-countries').then(res =>{
+                    this.countries = res.data
+                }).catch(error=>{
+                    console.log(console.error);
+                })
+            }
         }
     }
 </script>
