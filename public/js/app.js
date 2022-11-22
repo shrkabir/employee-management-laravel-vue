@@ -5467,7 +5467,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getCountries: function getCountries() {
       var _this = this;
-      axios.get('api/employees/get-countries').then(function (res) {
+      axios.get('/api/employees/get-countries').then(function (res) {
         _this.countries = res.data;
       })["catch"](function (error) {
         console.log(console.error);

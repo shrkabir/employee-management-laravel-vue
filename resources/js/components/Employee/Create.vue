@@ -151,7 +151,7 @@
         },
         methods: {
             getCountries(){
-                axios.get('api/employees/get-countries').then(res =>{
+                axios.get('/api/employees/get-countries').then(res =>{
                     this.countries = res.data
                 }).catch(error=>{
                     console.log(console.error);
