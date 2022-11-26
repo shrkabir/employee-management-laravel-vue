@@ -174,7 +174,7 @@
             },
 
             getStates(){
-                axios.get('employees/'+ this.form.country_id + 'get-states').then(res =>{
+                axios.get('employees/'+ this.form.country_id + '/get-states').then(res =>{
                     this.states= res.data
                 }).catch(error=>{
                     console.log(console.error);
