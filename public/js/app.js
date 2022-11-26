@@ -5459,7 +5459,21 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      countries: []
+      countries: [],
+      states: [],
+      form: {
+        first_name: '',
+        last_name: '',
+        middle_name: '',
+        address: '',
+        department_id: '',
+        country_id: '',
+        state_id: '',
+        city_id: '',
+        zip_code: '',
+        birth_date: null,
+        hired_date: null
+      }
     };
   },
   created: function created() {
@@ -5470,6 +5484,14 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       axios.get('/api/employees/get-countries').then(function (res) {
         _this.countries = res.data;
+      })["catch"](function (error) {
+        console.log(console.error);
+      });
+    },
+    getStates: function getStates() {
+      var _this2 = this;
+      axios.get('employees/' + this.form.country_id + 'get-states').then(function (res) {
+        _this2.states = res.data;
       })["catch"](function (error) {
         console.log(console.error);
       });
@@ -28581,8 +28603,38 @@ var render = function () {
                     _c(
                       "select",
                       {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.country_id,
+                            expression: "form.country_id",
+                          },
+                        ],
                         staticClass: "form-control",
                         attrs: { name: "country_id", id: "" },
+                        on: {
+                          change: [
+                            function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "country_id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            },
+                            _vm.getStates,
+                          ],
+                        },
                       },
                       [
                         _c("option", { attrs: { value: "" } }, [

@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('employees/get-countries', [EmployeeDataController::class, 'getCountries']);
+Route::get('employees/{country}/get-states', [EmployeeDataController::class, 'getStates']);

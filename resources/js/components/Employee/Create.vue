@@ -65,7 +65,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="country_id">Country</label>
-                                        <select name="country_id" id="" class="form-control">
+                                        <select name="country_id" id="" class="form-control" v-model="form.country_id" @change="getStates">
                                             <option value="">Select Country</option>
                                             <option v-for="country in countries" :key="country.id" :value="country.id">{{country.name}}</option>
                                         </select>
@@ -144,7 +144,21 @@
         },
         data(){
             return{
-                countries: []
+                countries: [],
+                states: [],
+                form: {
+                    first_name: '',
+                    last_name: '',
+                    middle_name: '',
+                    address: '',
+                    department_id: '',
+                    country_id: '',
+                    state_id: '',
+                    city_id: '',
+                    zip_code: '',
+                    birth_date: null,
+                    hired_date: null
+                }
             }
         },
         created(){
@@ -154,6 +168,14 @@
             getCountries(){
                 axios.get('/api/employees/get-countries').then(res =>{
                     this.countries = res.data
+                }).catch(error=>{
+                    console.log(console.error);
+                })
+            },
+
+            getStates(){
+                axios.get('employees/'+ this.form.country_id + 'get-states').then(res =>{
+                    this.states= res.data
                 }).catch(error=>{
                     console.log(console.error);
                 })

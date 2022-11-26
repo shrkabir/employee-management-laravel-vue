@@ -13,4 +13,8 @@ class EmployeeDataController extends Controller
 
         return response()->json($countries);
     }
+
+    public function getStates(Country $country){
+        return response()->json($country->states);
+    }
 }
