@@ -67,6 +67,7 @@
                                         <label for="country_id">Country</label>
                                         <select name="country_id" id="" class="form-control">
                                             <option value="">Select Country</option>
+                                            <option v-for="country in countries" :key="country.id" :value="country.id">{{country.name}}</option>
                                         </select>
                                     </div>
                                     <div>
