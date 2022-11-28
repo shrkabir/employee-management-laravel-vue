@@ -5490,7 +5490,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     getStates: function getStates() {
       var _this2 = this;
-      axios.get('employees/' + this.form.country_id + '/get-states').then(function (res) {
+      axios.get('/api/employees/' + this.form.country_id + '/get-states').then(function (res) {
         _this2.states = res.data;
       })["catch"](function (error) {
         console.log(console.error);
