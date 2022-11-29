@@ -77,8 +77,9 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="state_id">State</label>
-                                        <select name="state_id" id="" class="form-control">
-                                            <option value="">Select State</option>
+                                        <select name="state_id" id="" class="form-control" v-model="form.state_id" @click="getCities">
+                                            <option>Select State</option>
+                                            <option v-for="state in states" :key="state.id" :value="state.id">{{state.name}}</option>
                                         </select>
                                     </div>
                                     <div>
@@ -176,6 +177,14 @@
             getStates(){
                 axios.get('/api/employees/'+ this.form.country_id + '/get-states').then(res =>{
                     this.states= res.data
+                }).catch(error=>{
+                    console.log(console.error);
+                })
+            },
+
+            getCities(){
+                axios.get('/api/employees/'+this.form.state_id+'/get-cities').then(res=>{
+                    this.cities= res.data
                 }).catch(error=>{
                     console.log(console.error);
                 })

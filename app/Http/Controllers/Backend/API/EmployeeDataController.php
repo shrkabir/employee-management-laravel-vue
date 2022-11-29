@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\API;
 
 use Illuminate\Http\Request;
+use App\Models\Location\State;
 use App\Models\Location\Country;
 use App\Http\Controllers\Controller;
 
@@ -16,5 +17,9 @@ class EmployeeDataController extends Controller
 
     public function getStates(Country $country){
         return response()->json($country->state);
+    }
+
+    public function getCities(State $state){
+        return response()->json($state->city);
     }
 }

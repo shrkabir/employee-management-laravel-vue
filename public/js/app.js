@@ -5451,6 +5451,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5492,6 +5493,14 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
       axios.get('/api/employees/' + this.form.country_id + '/get-states').then(function (res) {
         _this2.states = res.data;
+      })["catch"](function (error) {
+        console.log(console.error);
+      });
+    },
+    getCities: function getCities() {
+      var _this3 = this;
+      axios.get('/api/employees/' + this.form.state_id + '/get-cities').then(function (res) {
+        _this3.cities = res.data;
       })["catch"](function (error) {
         console.log(console.error);
       });
@@ -28659,11 +28668,67 @@ var render = function () {
                   _c("div"),
                 ]),
                 _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "state_id" } }, [
+                      _vm._v("State"),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.state_id,
+                            expression: "form.state_id",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: { name: "state_id", id: "" },
+                        on: {
+                          click: _vm.getCities,
+                          change: function ($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function (o) {
+                                return o.selected
+                              })
+                              .map(function (o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.form,
+                              "state_id",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                        },
+                      },
+                      [
+                        _c("option", [_vm._v("Select State")]),
+                        _vm._v(" "),
+                        _vm._l(_vm.states, function (state) {
+                          return _c(
+                            "option",
+                            { key: state.id, domProps: { value: state.id } },
+                            [_vm._v(_vm._s(state.name))]
+                          )
+                        }),
+                      ],
+                      2
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div"),
+                ]),
+                _vm._v(" "),
                 _vm._m(6),
                 _vm._v(" "),
                 _vm._m(7),
-                _vm._v(" "),
-                _vm._m(8),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-4" }, [
                   _c(
@@ -28710,7 +28775,7 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _vm._m(9),
+              _vm._m(8),
             ]),
           ]),
         ]),
@@ -28821,24 +28886,6 @@ var staticRenderFns = [
               _vm._v("Select Department"),
             ]),
           ]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div"),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "state_id" } }, [_vm._v("State")]),
-        _vm._v(" "),
-        _c(
-          "select",
-          { staticClass: "form-control", attrs: { name: "state_id", id: "" } },
-          [_c("option", { attrs: { value: "" } }, [_vm._v("Select State")])]
         ),
       ]),
       _vm._v(" "),
