@@ -89,8 +89,9 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="city_id">City</label>
-                                        <select name="city_id" id="" class="form-control">
+                                        <select name="city_id" id="" class="form-control" v-model="form.city_id">
                                             <option value="">Select City</option>
+                                            <option v-for="city in cities" :key="city.id" :value="city.id">{{ city.name }}</option>
                                         </select>
                                     </div>
                                     <div>
@@ -147,6 +148,7 @@
             return{
                 countries: [],
                 states: [],
+                cities: [],
                 form: {
                     first_name: '',
                     last_name: '',

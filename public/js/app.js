@@ -5452,6 +5452,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5462,6 +5463,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       countries: [],
       states: [],
+      cities: [],
       form: {
         first_name: '',
         last_name: '',
@@ -28726,9 +28728,66 @@ var render = function () {
                   _c("div"),
                 ]),
                 _vm._v(" "),
-                _vm._m(6),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "city_id" } }, [
+                      _vm._v("City"),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.city_id,
+                            expression: "form.city_id",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: { name: "city_id", id: "" },
+                        on: {
+                          change: function ($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function (o) {
+                                return o.selected
+                              })
+                              .map(function (o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.form,
+                              "city_id",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                        },
+                      },
+                      [
+                        _c("option", { attrs: { value: "" } }, [
+                          _vm._v("Select City"),
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.cities, function (city) {
+                          return _c(
+                            "option",
+                            { key: city.id, domProps: { value: city.id } },
+                            [_vm._v(_vm._s(city.name))]
+                          )
+                        }),
+                      ],
+                      2
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div"),
+                ]),
                 _vm._v(" "),
-                _vm._m(7),
+                _vm._m(6),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-4" }, [
                   _c(
@@ -28775,7 +28834,7 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _vm._m(8),
+              _vm._m(7),
             ]),
           ]),
         ]),
@@ -28886,24 +28945,6 @@ var staticRenderFns = [
               _vm._v("Select Department"),
             ]),
           ]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div"),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "city_id" } }, [_vm._v("City")]),
-        _vm._v(" "),
-        _c(
-          "select",
-          { staticClass: "form-control", attrs: { name: "city_id", id: "" } },
-          [_c("option", { attrs: { value: "" } }, [_vm._v("Select City")])]
         ),
       ]),
       _vm._v(" "),
