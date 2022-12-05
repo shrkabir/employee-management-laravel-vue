@@ -54,8 +54,9 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="department_id">Department</label>
-                                        <select name="department_id" id="" class="form-control">
+                                        <select name="department_id" id="" class="form-control" v-model="form.department_id">
                                             <option value="">Select Department</option>
+                                            <option v-for="department in departments" :key="department.id" :value="department.id">{{department.name}}</option>
                                         </select>
                                     </div>
                                     <div>
@@ -149,6 +150,7 @@
                 countries: [],
                 states: [],
                 cities: [],
+                departments: [],
                 form: {
                     first_name: '',
                     last_name: '',
@@ -166,6 +168,7 @@
         },
         created(){
             this.getCountries();
+            this.getDepartments();
         },
         methods: {
             getCountries(){
@@ -187,6 +190,14 @@
             getCities(){
                 axios.get('/api/employees/'+this.form.state_id+'/get-cities').then(res=>{
                     this.cities= res.data
+                }).catch(error=>{
+                    console.log(console.error);
+                })
+            },
+
+            getDepartments(){
+                axios.get('employees/departments').then(res=>{
+                    this.departments = res.data
                 }).catch(error=>{
                     console.log(console.error);
                 })

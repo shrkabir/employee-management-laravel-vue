@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Location\State;
 use App\Models\Location\Country;
 use App\Http\Controllers\Controller;
+use App\Models\Department\Department;
 
 class EmployeeDataController extends Controller
 {
@@ -21,5 +22,11 @@ class EmployeeDataController extends Controller
 
     public function getCities(State $state){
         return response()->json($state->city);
+    }
+
+    public function getDepartments(){
+        $departments= Department::all();
+
+        return response()->json($departments);
     }
 }
