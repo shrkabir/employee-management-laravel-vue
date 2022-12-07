@@ -196,7 +196,7 @@
             },
 
             getDepartments(){
-                axios.get('employees/departments').then(res=>{
+                axios.get('/api/employees/get-departments').then(res=>{
                     this.departments = res.data
                 }).catch(error=>{
                     console.log(console.error);

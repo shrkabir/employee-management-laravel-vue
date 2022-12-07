@@ -5453,6 +5453,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5464,6 +5465,7 @@ __webpack_require__.r(__webpack_exports__);
       countries: [],
       states: [],
       cities: [],
+      departments: [],
       form: {
         first_name: '',
         last_name: '',
@@ -5481,6 +5483,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getCountries();
+    this.getDepartments();
   },
   methods: {
     getCountries: function getCountries() {
@@ -5503,6 +5506,14 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
       axios.get('/api/employees/' + this.form.state_id + '/get-cities').then(function (res) {
         _this3.cities = res.data;
+      })["catch"](function (error) {
+        console.log(console.error);
+      });
+    },
+    getDepartments: function getDepartments() {
+      var _this4 = this;
+      axios.get('/api/employees/get-departments').then(function (res) {
+        _this4.departments = res.data;
       })["catch"](function (error) {
         console.log(console.error);
       });
@@ -28603,7 +28614,67 @@ var render = function () {
                 _vm._v(" "),
                 _vm._m(4),
                 _vm._v(" "),
-                _vm._m(5),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "department_id" } }, [
+                      _vm._v("Department"),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.department_id,
+                            expression: "form.department_id",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: { name: "department_id", id: "" },
+                        on: {
+                          change: function ($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function (o) {
+                                return o.selected
+                              })
+                              .map(function (o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.form,
+                              "department_id",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                        },
+                      },
+                      [
+                        _c("option", { attrs: { value: "" } }, [
+                          _vm._v("Select Department"),
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.departments, function (department) {
+                          return _c(
+                            "option",
+                            {
+                              key: department.id,
+                              domProps: { value: department.id },
+                            },
+                            [_vm._v(_vm._s(department.name))]
+                          )
+                        }),
+                      ],
+                      2
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div"),
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-6" }, [
                   _c("div", { staticClass: "form-group" }, [
@@ -28787,7 +28858,7 @@ var render = function () {
                   _c("div"),
                 ]),
                 _vm._v(" "),
-                _vm._m(6),
+                _vm._m(5),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-4" }, [
                   _c(
@@ -28834,7 +28905,7 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _vm._m(7),
+              _vm._m(6),
             ]),
           ]),
         ]),
@@ -28919,33 +28990,6 @@ var staticRenderFns = [
           staticClass: "form-control",
           attrs: { name: "address", id: "", cols: "8", rows: "2" },
         }),
-      ]),
-      _vm._v(" "),
-      _c("div"),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "department_id" } }, [
-          _vm._v("Department"),
-        ]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            staticClass: "form-control",
-            attrs: { name: "department_id", id: "" },
-          },
-          [
-            _c("option", { attrs: { value: "" } }, [
-              _vm._v("Select Department"),
-            ]),
-          ]
-        ),
       ]),
       _vm._v(" "),
       _c("div"),
