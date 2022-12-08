@@ -18,7 +18,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="first_name">First Name</label>
-                                        <input type="text" name="first_name" id="" class="form-control" value="">
+                                        <input type="text" name="first_name" id="" class="form-control" value="" v-model="form.first_name">
                                     </div>
                                     <div>
                                         
@@ -27,7 +27,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="middle_name">Middle Name</label>
-                                        <input type="text" name="middle_name" id="" class="form-control" value="">
+                                        <input type="text" name="middle_name" id="" class="form-control" value="" v-model="form.middle_name">
                                     </div>
                                     <div>
                                         
@@ -36,7 +36,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="last_name">Last Name</label>
-                                        <input type="text" name="last_name" id="" class="form-control" value="">
+                                        <input type="text" name="last_name" id="" class="form-control" value="" v-model="form.last_name">
                                     </div>
                                     <div>
                                         
@@ -45,7 +45,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="address">Address</label>
-                                        <textarea name="address" id="" class="form-control" cols="8" rows="2"></textarea>
+                                        <textarea name="address" id="" class="form-control" cols="8" rows="2" v-model="form.address"></textarea>
                                     </div>
                                     <div>
                                         
@@ -102,7 +102,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="zip_code">Zip Code</label>
-                                        <input type="text" name="zip_code" id="" class="form-control" value="">
+                                        <input type="text" name="zip_code" id="" class="form-control" value="" v-model="form.zip_code">
                                     </div>
                                     <div>
                                         
@@ -111,7 +111,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="birth_date">Birth Date</label>
-                                        <datepicker name="birth_date" input-class="form-control"></datepicker>
+                                        <datepicker name="birth_date" input-class="form-control" v-model="form.birth_date"></datepicker>
                                     </div>
                                     <div>
                                         
@@ -120,7 +120,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="hired_date">Hired Date</label>
-                                        <datepicker name="hired_date" input-class="form-control"></datepicker>
+                                        <datepicker name="hired_date" input-class="form-control" v-model="form.hired_date"></datepicker>
                                     </div>
                                     <div>
                                         

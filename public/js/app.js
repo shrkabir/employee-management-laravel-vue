@@ -28606,13 +28606,148 @@ var render = function () {
           _c("div", { staticClass: "card-body" }, [
             _c("form", { attrs: { action: "", method: "post" } }, [
               _c("div", { staticClass: "row" }, [
-                _vm._m(1),
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "first_name" } }, [
+                      _vm._v("First Name"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.first_name,
+                          expression: "form.first_name",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "first_name",
+                        id: "",
+                        value: "",
+                      },
+                      domProps: { value: _vm.form.first_name },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "first_name", $event.target.value)
+                        },
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div"),
+                ]),
                 _vm._v(" "),
-                _vm._m(2),
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "middle_name" } }, [
+                      _vm._v("Middle Name"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.middle_name,
+                          expression: "form.middle_name",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "middle_name",
+                        id: "",
+                        value: "",
+                      },
+                      domProps: { value: _vm.form.middle_name },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "middle_name", $event.target.value)
+                        },
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div"),
+                ]),
                 _vm._v(" "),
-                _vm._m(3),
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "last_name" } }, [
+                      _vm._v("Last Name"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.last_name,
+                          expression: "form.last_name",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "last_name",
+                        id: "",
+                        value: "",
+                      },
+                      domProps: { value: _vm.form.last_name },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "last_name", $event.target.value)
+                        },
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div"),
+                ]),
                 _vm._v(" "),
-                _vm._m(4),
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "address" } }, [
+                      _vm._v("Address"),
+                    ]),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.address,
+                          expression: "form.address",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "address", id: "", cols: "8", rows: "2" },
+                      domProps: { value: _vm.form.address },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "address", $event.target.value)
+                        },
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div"),
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-6" }, [
                   _c("div", { staticClass: "form-group" }, [
@@ -28858,7 +28993,42 @@ var render = function () {
                   _c("div"),
                 ]),
                 _vm._v(" "),
-                _vm._m(5),
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "zip_code" } }, [
+                      _vm._v("Zip Code"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.zip_code,
+                          expression: "form.zip_code",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "zip_code",
+                        id: "",
+                        value: "",
+                      },
+                      domProps: { value: _vm.form.zip_code },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "zip_code", $event.target.value)
+                        },
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div"),
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-4" }, [
                   _c(
@@ -28873,6 +29043,13 @@ var render = function () {
                         attrs: {
                           name: "birth_date",
                           "input-class": "form-control",
+                        },
+                        model: {
+                          value: _vm.form.birth_date,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "birth_date", $$v)
+                          },
+                          expression: "form.birth_date",
                         },
                       }),
                     ],
@@ -28896,6 +29073,13 @@ var render = function () {
                           name: "hired_date",
                           "input-class": "form-control",
                         },
+                        model: {
+                          value: _vm.form.hired_date,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "hired_date", $$v)
+                          },
+                          expression: "form.hired_date",
+                        },
                       }),
                     ],
                     1
@@ -28905,7 +29089,7 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _vm._m(6),
+              _vm._m(1),
             ]),
           ]),
         ]),
@@ -28926,91 +29110,6 @@ var staticRenderFns = [
       },
       [_c("h1", { staticClass: "h3 mb-0 text-gray-800" }, [_vm._v("Employee")])]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "first_name" } }, [_vm._v("First Name")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", name: "first_name", id: "", value: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div"),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "middle_name" } }, [_vm._v("Middle Name")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", name: "middle_name", id: "", value: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div"),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "last_name" } }, [_vm._v("Last Name")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", name: "last_name", id: "", value: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div"),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "address" } }, [_vm._v("Address")]),
-        _vm._v(" "),
-        _c("textarea", {
-          staticClass: "form-control",
-          attrs: { name: "address", id: "", cols: "8", rows: "2" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div"),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "zip_code" } }, [_vm._v("Zip Code")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", name: "zip_code", id: "", value: "" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div"),
-    ])
   },
   function () {
     var _vm = this
