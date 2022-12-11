@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Backend\API;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Employee\Employee;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\EmployeeStoreRequest;
 
 class EmployeeController extends Controller
 {
@@ -33,9 +35,23 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmployeeStoreRequest $request)
     {
-        //
+        $employee= Employee::create([
+            'first_name'    => $request->first_name,
+            'middle_name'   => $request->middle_name,
+            'last_name'     => $request->last_name,
+            'address'       => $request->address,
+            'department_id' => $request->department_id,
+            'country_id'    => $request->country_id,
+            'state_id'      => $request->state_id,
+            'city_id'       => $request->city_id,
+            'zip_code'      => $request->zip_code,
+            'birth_date'    => $request->birth_date,
+            'hired_date'    => $request->hired_date
+        ]);
+
+        return response()->json($employee);
     }
 
     /**
