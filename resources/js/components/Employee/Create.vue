@@ -140,6 +140,7 @@
 
 <script>
     import Datepicker from 'vuejs-datepicker';
+    import moment from 'moment';
 
     export default{
         components: {
@@ -213,11 +214,14 @@
                     'state_id': this.form.state_id,
                     'city_id': this.form.city_id,
                     'zip_code': this.form.zip_code,
-                    'birth_date': this.form.birth_date,
-                    'hired_date': this.form.hired_date,
+                    'birth_date': this.formatDate(this.form.birth_date),
+                    'hired_date': this.formatDate(this.form.hired_date),
                 }).then(res=>{
                     console.log(res);
                 })
+            },
+            formatDate(dateValue){
+                return moment(String(dateValue)).format('YYYY-MM-DD');
             }
         }
     }
