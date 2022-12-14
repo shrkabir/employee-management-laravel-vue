@@ -5519,7 +5519,19 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     storeEmployee: function storeEmployee() {
-      axios.post('/api/employees').then(function (res) {
+      axios.post('/api/employees', {
+        'first_name': this.form.first_name,
+        'middle_name': this.form.middle_name,
+        'last_name': this.form.last_name,
+        'address': this.form.address,
+        'department_id': this.form.department_id,
+        'country_id': this.form.country_id,
+        'state_id': this.form.state_id,
+        'city_id': this.form.city_id,
+        'zip_code': this.form.zip_code,
+        'birth_date': this.form.birth_date,
+        'hired_date': this.form.hired_date
+      }).then(function (res) {
         console.log(res);
       });
     }
