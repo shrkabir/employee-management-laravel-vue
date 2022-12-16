@@ -40,19 +40,23 @@
                             <tr>
                                 <th>#</th>
                                 <th>First Name</th>
+                                <th>Middle Name</th>
                                 <th>Last Name</th>
-                                <th>Address</th>
+                                <th>Country</th>
                                 <th>Department</th>
+                                <th>Hired Date</th>
                                 <th>Manage</th>
                             </tr>
                         </thead>
                         <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                <tr v-for="employee in employees" :key="employee.id">
+                                    <td>{{"fsdf"}}</td>
+                                    <td>{{employee.first_name}}</td>
+                                    <td>{{employee.middle_name}}</td>
+                                    <td>{{employee.last_name}}</td>
+                                    <td>{{employee.country.name}}</td>
+                                    <td>{{employee.department.name}}</td>
+                                    <td>{{employee.hired_date}}</td>
                                     <td>
                                         <div class="row">
                                             <a href="" class="btn btn-sm btn-primary mr-2">Edit</a>
@@ -75,7 +79,23 @@
 
 <script>
 export default {
-    
+    data(){
+        return {
+            employees: [],
+        };
+    },
+    created(){
+        this.getEmployees();
+    },
+    methods: {
+        getEmployees(){
+            axios.get('api/employees').then(res=>{
+                this.employees= res.data.data
+            }).catch(error=>{
+                console.log(error);
+            });
+        }
+    }
 };
 </script>
 

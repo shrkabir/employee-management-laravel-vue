@@ -25,3 +25,4 @@ Route::get('employees/{country}/get-states', [EmployeeDataController::class, 'ge
 Route::get('employees/{state}/get-cities', [EmployeeDataController::class, 'getCities']);
 Route::get('employees/get-departments', [EmployeeDataController::class, 'getDepartments']);
 Route::post('/employees', [EmployeeController::class, 'store']);
+Route::get('/employees', [EmployeeController::class, 'index']);
