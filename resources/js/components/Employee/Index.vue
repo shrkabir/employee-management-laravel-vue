@@ -58,8 +58,10 @@
                                     <td>{{employee.department.name}}</td>
                                     <td>{{employee.hired_date}}</td>
                                     <td>
+                                        <router-link :to="{name: 'employee-edit', params: {id: employee.id}}" class="btn btn-sm btn-primary">Edit</router-link>
+                                        <button class="btn btn-sm btn-danger" @click="deleteEmployee(employee.id)">Delete</button>
                                         <div class="row">
-                                            <a href="" class="btn btn-sm btn-primary mr-2">Edit</a>
+                                            <!-- <a href="" class="btn btn-sm btn-primary mr-2">Edit</a> -->
                                             <!-- <form action="{{route('cities.destroy', $city->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
@@ -94,6 +96,9 @@ export default {
             }).catch(error=>{
                 console.log(error);
             });
+        },
+        deleteEmployee(id){
+            alert(id);
         }
     }
 };
