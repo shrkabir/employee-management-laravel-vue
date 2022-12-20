@@ -5687,7 +5687,9 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deleteEmployee: function deleteEmployee(id) {
-      alert(id);
+      axios["delete"]('api/employee/' + id).then(function (res) {
+        console.log(res);
+      });
     }
   }
 });

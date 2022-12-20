@@ -98,7 +98,9 @@ export default {
             });
         },
         deleteEmployee(id){
-            alert(id);
+            axios.delete('api/employee/'+id).then(res=>{
+                console.log(res);
+            });
         }
     }
 };
