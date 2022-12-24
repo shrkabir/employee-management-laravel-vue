@@ -2,12 +2,12 @@
     <div>
         <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Cities</h1>
+        <h1 class="h3 mb-0 text-gray-800">Employees</h1>
     </div>
 
     
-        <div>
-            <span class="alert alert-primary"></span>
+        <div v-if="showMessage">
+            <span class="alert alert-danger">{{ message }}</span>
         </div>
     
 
@@ -84,6 +84,8 @@ export default {
     data(){
         return {
             employees: [],
+            showMessage: false,
+            message: '',
         };
     },
     created(){
@@ -99,7 +101,9 @@ export default {
         },
         deleteEmployee(id){
             axios.delete('api/employee/'+id).then(res=>{
-                console.log(res);
+                this.showMessage= true;
+                this.message= res.data
+                this.getEmployees();
             });
         }
     }

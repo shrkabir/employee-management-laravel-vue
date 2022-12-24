@@ -5671,7 +5671,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      employees: []
+      employees: [],
+      showMessage: false,
+      message: ''
     };
   },
   created: function created() {
@@ -5687,8 +5689,11 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deleteEmployee: function deleteEmployee(id) {
+      var _this2 = this;
       axios["delete"]('api/employee/' + id).then(function (res) {
-        console.log(res);
+        _this2.showMessage = true;
+        _this2.message = res.data;
+        _this2.getEmployees();
       });
     }
   }
@@ -50914,14 +50919,20 @@ var render = function () {
   return _c("div", [
     _vm._m(0),
     _vm._v(" "),
-    _vm._m(1),
+    _vm.showMessage
+      ? _c("div", [
+          _c("span", { staticClass: "alert alert-danger" }, [
+            _vm._v(_vm._s(_vm.message)),
+          ]),
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-header" }, [
             _c("div", { staticClass: "row" }, [
-              _vm._m(2),
+              _vm._m(1),
               _vm._v(" "),
               _c(
                 "div",
@@ -50942,7 +50953,7 @@ var render = function () {
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c("table", { staticClass: "table table-border" }, [
-              _vm._m(3),
+              _vm._m(2),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -51018,14 +51029,12 @@ var staticRenderFns = [
         staticClass:
           "d-sm-flex align-items-center justify-content-between mb-4",
       },
-      [_c("h1", { staticClass: "h3 mb-0 text-gray-800" }, [_vm._v("Cities")])]
+      [
+        _c("h1", { staticClass: "h3 mb-0 text-gray-800" }, [
+          _vm._v("Employees"),
+        ]),
+      ]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("span", { staticClass: "alert alert-primary" })])
   },
   function () {
     var _vm = this
