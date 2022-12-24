@@ -5522,6 +5522,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     storeEmployee: function storeEmployee() {
+      var _this5 = this;
       axios.post('/api/employees', {
         'first_name': this.form.first_name,
         'middle_name': this.form.middle_name,
@@ -5535,7 +5536,9 @@ __webpack_require__.r(__webpack_exports__);
         'birth_date': this.formatDate(this.form.birth_date),
         'hired_date': this.formatDate(this.form.hired_date)
       }).then(function (res) {
-        console.log(res);
+        _this5.$router.push({
+          name: 'employee-index'
+        });
       });
     },
     formatDate: function formatDate(dateValue) {

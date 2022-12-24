@@ -217,7 +217,7 @@
                     'birth_date': this.formatDate(this.form.birth_date),
                     'hired_date': this.formatDate(this.form.hired_date),
                 }).then(res=>{
-                    console.log(res);
+                    this.$router.push({name:'employee-index'});
                 })
             },
             formatDate(dateValue){
