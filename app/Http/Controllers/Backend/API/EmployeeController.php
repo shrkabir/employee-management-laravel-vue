@@ -79,6 +79,12 @@ class EmployeeController extends Controller
         //
     }
 
+    public function getEmployee($id){
+        $employee= Employee::find($id);
+
+        return response()->json($employee);
+    }
+
     /**
      * Update the specified resource in storage.
      *
