@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Backend\API;
 
 use Illuminate\Http\Request;
+use App\Models\Location\City;
+use App\Models\Location\State;
 use App\Models\Employee\Employee;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\EmployeeStoreRequest;
 use App\Http\Resources\EmployeeResource;
+use App\Http\Requests\EmployeeStoreRequest;
+use App\Http\Requests\EmployeeUpdateRequest;
 
 class EmployeeController extends Controller
 {
@@ -81,8 +84,14 @@ class EmployeeController extends Controller
 
     public function getEmployee($id){
         $employee= Employee::find($id);
+        $states= State::where('id', $employee->state_id)->get();
+        $cities= City::where('id', $employee->city_id)->get();
 
-        return response()->json($employee);
+        return response()->json([
+            'employee' => $employee,
+            'states' => $states,
+            'cities' => $cities
+        ]);
     }
 
     /**
@@ -92,9 +101,9 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EmployeeUpdateRequest $request, Employee $employee)
     {
-        //
+        $employee->update($request->validated());
     }
 
     /**

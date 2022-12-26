@@ -78,7 +78,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="state_id">State</label>
-                                        <select name="state_id" id="" class="form-control" v-model="form.state_id" @click="getCities">
+                                        <select name="state_id" id="" class="form-control" v-model="form.state_id" @change="getCities">
                                             <option>Select State</option>
                                             <option v-for="state in states" :key="state.id" :value="state.id">{{state.name}}</option>
                                         </select>
@@ -128,7 +128,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <input type="submit" class="btn btn-primary" value="Create">
+                                <input type="submit" class="btn btn-primary" value="Update">
                             </div>
                         </form>
                     </div>
@@ -176,7 +176,11 @@
             getEmployee(){
                 axios.get('/api/get-employee-data/'+ this.$route.params.id).then(res=>{
                     console.log(res);
-                    this.form= res.data;
+                    this.form= res.data.employee;
+                    this.states= res.data.states;
+                    this.cities= res.data.cities;
+                    // getStates();
+                    // getCities();
                 }).catch(error=>{
                     console.log(console.error);
                 });
@@ -212,8 +216,8 @@
                     console.log(console.error);
                 })
             },
-            storeEmployee(){
-                axios.post('/api/employees', {
+            updateEmployee(){
+                axios.put('/api/update-employee/'+this.$route.params.id, {
                     'first_name': this.form.first_name,
                     'middle_name': this.form.middle_name,
                     'last_name': this.form.last_name,

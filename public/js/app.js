@@ -5741,7 +5741,11 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       axios.get('/api/get-employee-data/' + this.$route.params.id).then(function (res) {
         console.log(res);
-        _this.form = res.data;
+        _this.form = res.data.employee;
+        _this.states = res.data.states;
+        _this.cities = res.data.cities;
+        // getStates();
+        // getCities();
       })["catch"](function (error) {
         console.log(console.error);
       });
@@ -5778,9 +5782,9 @@ __webpack_require__.r(__webpack_exports__);
         console.log(console.error);
       });
     },
-    storeEmployee: function storeEmployee() {
+    updateEmployee: function updateEmployee() {
       var _this6 = this;
-      axios.post('/api/employees', {
+      axios.put('/api/update-employee/' + this.$route.params.id, {
         'first_name': this.form.first_name,
         'middle_name': this.form.middle_name,
         'last_name': this.form.last_name,
@@ -51443,24 +51447,26 @@ var render = function () {
                           staticClass: "form-control",
                           attrs: { name: "state_id", id: "" },
                           on: {
-                            click: _vm.getCities,
-                            change: function ($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function (o) {
-                                  return o.selected
-                                })
-                                .map(function (o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.form,
-                                "state_id",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
-                            },
+                            change: [
+                              function ($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function (o) {
+                                    return o.selected
+                                  })
+                                  .map(function (o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "state_id",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              },
+                              _vm.getCities,
+                            ],
                           },
                         },
                         [
@@ -51666,7 +51672,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-md-12" }, [
       _c("input", {
         staticClass: "btn btn-primary",
-        attrs: { type: "submit", value: "Create" },
+        attrs: { type: "submit", value: "Update" },
       }),
     ])
   },
