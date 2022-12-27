@@ -84,8 +84,8 @@ class EmployeeController extends Controller
 
     public function getEmployee($id){
         $employee= Employee::find($id);
-        $states= State::where('id', $employee->state_id)->get();
-        $cities= City::where('id', $employee->city_id)->get();
+        $states= State::where('country_id', $employee->country_id)->get();
+        $cities= City::where('state_id', $employee->state_id)->get();
 
         return response()->json([
             'employee' => $employee,
