@@ -20,7 +20,7 @@
                             <form action="" method="GET">
                                 <div class="form-row align-items-center">
                                     <div class="col">
-                                        <input type="search" name="search" class="form-control mb-2" placeholder="Search state">
+                                        <input type="search" v-model="search" class="form-control mb-2" placeholder="Search Employee">
                                     </div>
                                     <div class="col">
                                         <button type="submit" class="btn btn-primary mb-2">Search</button>
@@ -86,6 +86,7 @@ export default {
             employees: [],
             showMessage: false,
             message: '',
+            search: null
         };
     },
     created(){

@@ -5910,7 +5910,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       employees: [],
       showMessage: false,
-      message: ''
+      message: '',
+      search: null
     };
   },
   created: function created() {
@@ -51715,7 +51716,40 @@ var render = function () {
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-header" }, [
             _c("div", { staticClass: "row" }, [
-              _vm._m(1),
+              _c("div", { staticClass: "col" }, [
+                _c("form", { attrs: { action: "", method: "GET" } }, [
+                  _c("div", { staticClass: "form-row align-items-center" }, [
+                    _c("div", { staticClass: "col" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.search,
+                            expression: "search",
+                          },
+                        ],
+                        staticClass: "form-control mb-2",
+                        attrs: {
+                          type: "search",
+                          placeholder: "Search Employee",
+                        },
+                        domProps: { value: _vm.search },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.search = $event.target.value
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1),
+                  ]),
+                ]),
+              ]),
               _vm._v(" "),
               _c(
                 "div",
@@ -51824,31 +51858,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col" }, [
-      _c("form", { attrs: { action: "", method: "GET" } }, [
-        _c("div", { staticClass: "form-row align-items-center" }, [
-          _c("div", { staticClass: "col" }, [
-            _c("input", {
-              staticClass: "form-control mb-2",
-              attrs: {
-                type: "search",
-                name: "search",
-                placeholder: "Search state",
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary mb-2",
-                attrs: { type: "submit" },
-              },
-              [_vm._v("Search")]
-            ),
-          ]),
-        ]),
-      ]),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary mb-2", attrs: { type: "submit" } },
+        [_vm._v("Search")]
+      ),
     ])
   },
   function () {
