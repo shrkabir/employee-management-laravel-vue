@@ -50,7 +50,7 @@
                         </thead>
                         <tbody>
                                 <tr v-for="employee in employees" :key="employee.id">
-                                    <td>{{"fsdf"}}</td>
+                                    <td>{{employee.id}}</td>
                                     <td>{{employee.first_name}}</td>
                                     <td>{{employee.middle_name}}</td>
                                     <td>{{employee.last_name}}</td>
