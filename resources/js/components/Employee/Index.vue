@@ -16,7 +16,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col">
+                        <!-- <div class="col">
                             <form action="" method="GET">
                                 <div class="form-row align-items-center">
                                     <div class="col">
@@ -27,7 +27,7 @@
                                     </div>
                                 </div>
                             </form>
-                        </div>
+                        </div> -->
                         <div>
                             <router-link :to="{name: 'employee-create'}" class="float-right btn btn-sm btn-primary">Create</router-link>
                             <!-- <a href="" class="float-right btn btn-sm btn-primary">Create</a> -->
