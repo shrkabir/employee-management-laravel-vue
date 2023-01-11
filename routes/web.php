@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\settings\CityController;
+use App\Http\Controllers\Backend\Settings\StateController;
+use App\Http\Controllers\Backend\Settings\CountryController;
+use App\Http\Controllers\Backend\Settings\DepartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +25,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('users', UserController::class);
+Route::post('users/{id}/change-pssword', [UserController::class, 'changePassword'])->name('users.change-password');
+//System Management Routes
+Route::resource('countries', CountryController::class);
+Route::resource('states', StateController::class);
+Route::resource('cities', CityController::class);
+Route::resource('departments', DepartmentController::class);
+Route::get('{any}', function(){
+    return view('employee.index');
+})->where('any', '.*');
